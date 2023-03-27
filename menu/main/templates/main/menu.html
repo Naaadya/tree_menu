@@ -1,0 +1,10 @@
+{% for menu in root.children %}
+    <li>
+        <a href="{{menu.url}}" class="{% if menu.selected %}selected{% endif %}" >{{menu.name}}</a>
+        {% if menu.children|length %}
+            <ul>
+                {% include "main/menu.html" with root=menu %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}
