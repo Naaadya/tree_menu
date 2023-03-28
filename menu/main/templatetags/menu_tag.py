@@ -38,16 +38,7 @@ def find_db_item(db_items, parent_id):
         if item.parent_id == parent_id:
             return item
     return None
-    for item in db_items:
-        if item.parent_id == parent_html_item.id:
-            parent_html_item.addChild(tree_item(item.name, item.url, item.id, item.parent_id))
-    # find parent and build next level
-    for item in db_items:
-        if item.id == parent_html_item.parent_id:
-            next_parent = tree_item(item.name, item.url, item.id, item.parent_id)
-            next_parent.addChild(parent_html_item)
-            return build_tree(db_items, next_parent)
-    return parent_html_item
+
 #строим дерево из бд
 def build_tree(db_items, parent_html):
     for item in db_items:
